@@ -32,13 +32,15 @@
     <!-- 读取联系人 -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <!--指纹解锁-->
-    <uses-permission android:name="android.permission.USE_FINGERPRINT"></uses-permission>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+        
     <application
         android:allowBackup="true"
         android:name="com.zcolin.arcgis.demo.App"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
 
         <meta-data
