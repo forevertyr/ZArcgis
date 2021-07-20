@@ -13,7 +13,6 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -27,6 +26,8 @@ import com.telchina.arcgis.core.measure.GisMeasureDraw;
 import com.telchina.arcgis.core.measure.MeasureVariable;
 import com.zcolin.frame.util.DisplayUtil;
 import com.zcolin.libamaplocation.LocationUtil;
+
+import androidx.annotation.DrawableRes;
 
 
 /**

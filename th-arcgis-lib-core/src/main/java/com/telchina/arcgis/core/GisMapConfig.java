@@ -9,7 +9,6 @@
 
 package com.telchina.arcgis.core;
 
-import android.support.annotation.IntDef;
 
 import com.telchina.arcgis.core.tiledservice.BaseTiledParam;
 import com.telchina.arcgis.core.tiledservice.GaodeTiledParam;
@@ -17,6 +16,8 @@ import com.zcolin.frame.app.BaseApp;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.IntDef;
 
 /**
  */

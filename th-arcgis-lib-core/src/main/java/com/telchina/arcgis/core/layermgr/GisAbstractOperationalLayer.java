@@ -27,7 +27,7 @@ import java.util.Set;
 public abstract class GisAbstractOperationalLayer {
 
     protected HashMap<String, Layer> mapLayer = new HashMap<>();//所有特征图层的集合
-    protected GisMapView mapView;
+    protected GisMapView             mapView;
 
     public GisAbstractOperationalLayer(GisMapView mapView) {
         this.mapView = mapView;

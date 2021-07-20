@@ -1,12 +1,3 @@
-/*
- * *********************************************************
- *   author   colin
- *   company  telchina
- *   email    wanglin2046@126.com
- *   date     19-1-23 下午2:47
- * ********************************************************
- */
-
 package com.telchina.arcgis.core.layermgr;
 
 import com.esri.arcgisruntime.data.Feature;

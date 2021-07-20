@@ -11,8 +11,6 @@ package com.telchina.arcgis.core;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
@@ -40,6 +38,9 @@ import com.telchina.arcgis.core.tiledservice.BaseTiledParam;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * 封装Arcgis MapView
@@ -107,7 +108,8 @@ public class GisMapView extends FrameLayout {
                 }
             }
         });
-        addView(mapView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        addView(mapView,
+                new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
     /**
@@ -125,7 +127,9 @@ public class GisMapView extends FrameLayout {
      * 设置初始缩放
      */
     private void setInitViewPoint() {
-        Point point = new Point(tileParam.getCenterPoint()[0], tileParam.getCenterPoint()[1], SpatialReference.create(tileParam.getWkid()));
+        Point point = new Point(tileParam.getCenterPoint()[0],
+                                tileParam.getCenterPoint()[1],
+                                SpatialReference.create(tileParam.getWkid()));
         Viewpoint viewpoint = new Viewpoint(point, tileParam.getInitScale());
         getMap().setInitialViewpoint(viewpoint);
     }
@@ -134,7 +138,9 @@ public class GisMapView extends FrameLayout {
      * 切换底图类型（普通/影像）
      */
     private void switchBaseTiled() {
-        BaseTiledLayer[] baseLayer = curMapType == TYPE_BASETILED_VEC ? tileParam.getVecBaseTileLayer() : tileParam.getImgBaseTileLayer();
+        BaseTiledLayer[] baseLayer = curMapType == TYPE_BASETILED_VEC ?
+                                     tileParam.getVecBaseTileLayer() :
+                                     tileParam.getImgBaseTileLayer();
         if (baseLayer != null && baseLayer.length > 0) {
             Basemap basemap = new Basemap();
             for (BaseTiledLayer aBaseLayer : baseLayer) {
@@ -153,7 +159,9 @@ public class GisMapView extends FrameLayout {
      * 移动到初始化地图的中心点，缩放比为初始缩放比
      */
     public void zoomToCenterScale() {
-        Point mPoint = new Point(tileParam.getCenterPoint()[0], tileParam.getCenterPoint()[1], SpatialReference.create(tileParam.getWkid()));
+        Point mPoint = new Point(tileParam.getCenterPoint()[0],
+                                 tileParam.getCenterPoint()[1],
+                                 SpatialReference.create(tileParam.getWkid()));
         zoomToPoint(mPoint, tileParam.getInitScale());
     }
 
@@ -458,14 +466,14 @@ public class GisMapView extends FrameLayout {
     }
 
     /**
-     * @return 是否拦截后续请求
+     *
      */
     public interface DoubleTapListener {
         boolean onDoubleTap(MotionEvent p);
     }
 
     /**
-     * @return 是否拦截后续请求
+     *
      */
     public interface LongPressListener {
         boolean onLongPress(MotionEvent p);

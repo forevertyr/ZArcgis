@@ -14,7 +14,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -38,6 +37,8 @@ import com.zcolin.frame.util.ToastUtil;
 import com.zcolin.libamaplocation.LocationUtil;
 
 import java.util.Map;
+
+import androidx.annotation.DrawableRes;
 
 
 /**
@@ -65,9 +66,11 @@ public class GisMapOperateView extends RelativeLayout {
         int menuBarPaddingBottom = (int) array.getDimension(R.styleable.GisMapOperateView_menuBarPaddingBottom, 10);
         int menuBarPaddingLeft = (int) array.getDimension(R.styleable.GisMapOperateView_menuBarPaddingLeft, 10);
         int menuBarPaddingRight = (int) array.getDimension(R.styleable.GisMapOperateView_menuBarPaddingRight, 10);
-        int menuBarGravity = array.getInt(R.styleable.GisMapOperateView_menuBarGravity, Gravity.TOP | Gravity.RIGHT);//右上
+        int menuBarGravity = array.getInt(R.styleable.GisMapOperateView_menuBarGravity,
+                                          Gravity.TOP | Gravity.RIGHT);//右上
 
-        int menuBarOrientation = array.getInt(R.styleable.GisMapOperateView_menuBarOrientation, LinearLayout.VERTICAL);//纵向
+        int menuBarOrientation = array.getInt(R.styleable.GisMapOperateView_menuBarOrientation,
+                                              LinearLayout.VERTICAL);//纵向
         Drawable locationIcon = array.getDrawable(R.styleable.GisMapOperateView_locationIcon);
         Drawable mapTypeIcon = array.getDrawable(R.styleable.GisMapOperateView_mapTypeIcon);
         Drawable resetIcon = array.getDrawable(R.styleable.GisMapOperateView_resetIcon);
@@ -76,7 +79,8 @@ public class GisMapOperateView extends RelativeLayout {
 
         int measureToolVisibility = array.getInteger(R.styleable.GisMapOperateView_measureToolVisibility, VISIBLE);
 
-        ColorStateList mapTypeItemTextColor = array.getColorStateList(R.styleable.GisMapOperateView_mapTypeItemTextColor);
+        ColorStateList mapTypeItemTextColor =
+                array.getColorStateList(R.styleable.GisMapOperateView_mapTypeItemTextColor);
         int mapTypeAnim = array.getResourceId(R.styleable.GisMapOperateView_mapTypeDialogAnim, 0);
         array.recycle();
 
@@ -372,7 +376,8 @@ public class GisMapOperateView extends RelativeLayout {
     }
 
     public void highLightGeometry(Geometry geometry, @DrawableRes int pointPic) {
-        graphicsLayerMgr.highLightGeometry(geometry, GisGraphicsOverlayConfig.instanceHighlight().setPointPic(pointPic));
+        graphicsLayerMgr.highLightGeometry(geometry,
+                                           GisGraphicsOverlayConfig.instanceHighlight().setPointPic(pointPic));
     }
 
     public void highLightGeometry(Geometry geometry, GisGraphicsOverlayConfig config) {
@@ -388,7 +393,8 @@ public class GisMapOperateView extends RelativeLayout {
      *
      * @param isMoveToDest 是否移动到高亮区域
      */
-    public void highLightGeometry(GraphicsOverlay graphicsLayer, Geometry geometry, GisGraphicsOverlayConfig config, boolean isMoveToDest) {
+    public void highLightGeometry(GraphicsOverlay graphicsLayer, Geometry geometry, GisGraphicsOverlayConfig config,
+            boolean isMoveToDest) {
         graphicsLayerMgr.highLightGeometry(graphicsLayer, geometry, config, isMoveToDest);
     }
 
@@ -456,7 +462,8 @@ public class GisMapOperateView extends RelativeLayout {
         graphicsLayerMgr.drawGeometry(overlay, geometry, null, config);
     }
 
-    public void drawGeometry(GraphicsOverlay overlay, Geometry geometry, Map<String, Object> attr, GisGraphicsOverlayConfig config) {
+    public void drawGeometry(GraphicsOverlay overlay, Geometry geometry, Map<String, Object> attr,
+            GisGraphicsOverlayConfig config) {
         graphicsLayerMgr.drawGeometry(overlay, geometry, attr, config);
     }
 
@@ -487,7 +494,8 @@ public class GisMapOperateView extends RelativeLayout {
     /**
      * 地图绘制元素, 清除原图层
      */
-    public void drawGeometryWithClear(GraphicsOverlay overlay, Geometry geometry, Map<String, Object> attr, GisGraphicsOverlayConfig config) {
+    public void drawGeometryWithClear(GraphicsOverlay overlay, Geometry geometry, Map<String, Object> attr,
+            GisGraphicsOverlayConfig config) {
         graphicsLayerMgr.clearDrawLayer();
         graphicsLayerMgr.drawGeometry(overlay, geometry, attr, config);
     }
@@ -508,7 +516,8 @@ public class GisMapOperateView extends RelativeLayout {
                 locationUtil.startLocation(new LocationUtil.OnGetLocation() {
                     @Override
                     public void getLocation(AMapLocation location) {
-                        boolean isSuccess = graphicsLayerMgr.drawLocationSymbol(location.getLongitude(), location.getLatitude());
+                        boolean isSuccess = graphicsLayerMgr.drawLocationSymbol(location.getLongitude(),
+                                                                                location.getLatitude());
                         if (!isSuccess) {
                             ToastUtil.toastShort("无法获取当前位置");
                         }

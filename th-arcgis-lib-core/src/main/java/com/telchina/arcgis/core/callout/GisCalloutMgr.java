@@ -9,6 +9,7 @@
 
 package com.telchina.arcgis.core.callout;
 
+
 import android.content.Context;
 import android.graphics.Color;
 import android.view.MotionEvent;
@@ -25,12 +26,12 @@ import com.zcolin.frame.util.DisplayUtil;
  */
 public class GisCalloutMgr {
 
-    private int backgroundColor = Color.WHITE;
-    private int borderColor     = Color.WHITE;
-    private int cornerRadius    = 20;
-    private int borderWidth     = 2;
-    private int leaderLength    = 12;
-    private int leaderWidth     = 12;
+    private int                 backgroundColor = Color.WHITE;
+    private int                 borderColor     = Color.WHITE;
+    private int                 cornerRadius    = 20;
+    private int                 borderWidth     = 2;
+    private int                 leaderLength    = 12;
+    private int                 leaderWidth     = 12;
     private int                 maxHeight;
     private int                 minHeight;
     private int                 maxWidth;
@@ -153,7 +154,9 @@ public class GisCalloutMgr {
         calloutStyle.setMinWidth(minWidth);
         callout.setStyle(calloutStyle);
         if (offSetX != 0 || offSetY != 0) {
-            centerPoint = new Point(centerPoint.getX() - offSetX, centerPoint.getY() - offSetY, centerPoint.getSpatialReference());
+            centerPoint = new Point(centerPoint.getX() - offSetX,
+                                    centerPoint.getY() - offSetY,
+                                    centerPoint.getSpatialReference());
         }
 
         if (showOptions != null) {

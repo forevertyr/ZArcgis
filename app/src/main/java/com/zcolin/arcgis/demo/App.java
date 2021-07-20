@@ -1,13 +1,10 @@
 package com.zcolin.arcgis.demo;
 
-import android.support.multidex.MultiDex;
 
 import com.zcolin.frame.app.BaseApp;
 import com.zcolin.frame.util.LogUtil;
 
-/**
- * Created by ZColin on 2019/1/21.
- */
+import androidx.multidex.MultiDex;
 
 public class App extends BaseApp {
     @Override
